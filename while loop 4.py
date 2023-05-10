@@ -1,4 +1,4 @@
-x=input("Enter a text")
+x=input("Enter a text: ")
 counter=len(x)
 i=0
 while counter!=0:
