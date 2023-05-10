@@ -4,6 +4,5 @@ if ans=="c":
     convert=(Value*9/5) + 32
     print(str(convert) +" Fahrenheit")
 else:
-    if ans=="f":
-        convert=(Value-32) * 5/9
+        convert= (Value-32) * 5/9
         print(str(convert) +" Celcius")
