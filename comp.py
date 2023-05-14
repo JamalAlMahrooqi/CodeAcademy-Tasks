@@ -17,39 +17,43 @@
 # # # else:
 # # #     print("Invalid")
 # # 
-# # 
-# # 
-# # s=input("""Enter a passwrod that contains the following:
-# # 8 charaters
-# # Contains a lower case
-# # contains an uppercase
-# # contains num
-# # Special char
-# # """)
-# # special=["@","$","#","_"]
-# # contains_num=False
-# # contains_char=False
-# # contains_lower=False
-# # contains_num=False
-# # pos=0
-# # 
-# # length=len(s)
-# # for i in range(length):
-# #         if(s[i] in special or
-# #            s[i].islower or
-# #            s[i].isupper or
-# #            isinstance(s[i],int)or
-# #            isinstance(s[i],str)
-# #            ):
-# #             valid=True
-# #         else:
-# #             valid=False
-# # 
-# # if valid:
-# #     print("Valid")
-# # else:
-# #     valid=False
-# #     print("Invalid")
+
+
+
+
+password=input("""Enter a passwrod that contains that has following:
+8 charaters
+Contains a lower case
+contains an uppercase
+contains num
+a special char (@,$,#,_)
+""" 
+)
+
+contains_lowercase = False
+contains_uppercase = False
+contains_digit = False
+contains_special = False
+
+for char in password:
+    if char.islower():
+        contains_lowercase = True
+    elif char.isupper():
+        contains_uppercase = True
+    elif char.isdigit():
+        contains_digit = True
+    elif char in "@$#_":
+        contains_special = True
+
+if len(password) < 8 or not contains_lowercase or not contains_uppercase or not contains_digit or not contains_special:
+    print("Password is not valid.")
+else:
+    print("Password is valid.")
+
+    
+    
+    
+    
 # #     
 # import random as r
 # 
@@ -69,6 +73,11 @@
 #         print("Go lower!")
 #         guess=input("Guess again: ")
 # 
+
+
+
+
+
 for i in range (1,100):
     if i==4:
         continue
