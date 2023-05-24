@@ -1,0 +1,7 @@
+Input x,y,z from user
+Print (x,y,z)
+if(x==y==z)
+	print(They are equal)
+else
+	max(x,y,z)
+	print(max," is the maxium number")
