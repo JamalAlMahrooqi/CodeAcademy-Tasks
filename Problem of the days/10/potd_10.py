@@ -17,7 +17,7 @@ while flag:
         
 for i in range(len(list1) - 1, 0, -1):
     if list1[i] <= list1[i - 1]:
-        print(list1[i])
+        print(list1[i],end=' ')
     else:
-        print(list1[i])
+        print(list1[i],end=' ')
         break
