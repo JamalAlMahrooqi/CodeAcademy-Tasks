@@ -1,56 +1,58 @@
-create database Gym
+Create database Gym
 
 CREATE TABLE Gyms (
     Gyms_id VARCHAR(5) NOT NULL,
     Gyms_name VARCHAR(20) NOT NULL,
     Gyms_location VARCHAR(20),
-    Gyms_contact_number INT,
+    Gyms_contact_number BIGINT,
     CONSTRAINT gyms_id_pk PRIMARY KEY (Gyms_id),
     CONSTRAINT gyms_contact_number_check CHECK (Gyms_contact_number > 7000000)
 );
 
-create table Trainer(
-Trainer_id varchar(5) NOT NULL,
-Trainer_name varchar(20) Not Null,
-Trainer_gender varchar(1) Not null check (Trainer_gender in ('M','F')),
-Trainer_mobile_number int Not null UNIQUE check (Trainer_mobile_number>7000000),
-Trainer_specialization varchar(20),
-Trainer_gym_id varchar(5) not null unique ,
-constraint Trainer_id_pk primary key (Trainer_id),
-constraint trainer_gym_id_fk foreign key (Trainer_gym_id) references Gyms(Gyms_id),
+
+CREATE TABLE Trainer (
+    Trainer_id VARCHAR(5) NOT NULL,
+    Trainer_name VARCHAR(20) NOT NULL,
+    Trainer_gender VARCHAR(1) NOT NULL CHECK (Trainer_gender IN ('M', 'F')),
+    Trainer_mobile_number BIGINT NOT NULL UNIQUE CHECK (Trainer_mobile_number > 7000000),
+    Trainer_specialization VARCHAR(20),
+    Trainer_gym_id VARCHAR(5) NOT NULL UNIQUE,
+    CONSTRAINT Trainer_id_pk PRIMARY KEY (Trainer_id),
+    CONSTRAINT Trainer_gym_id_fk FOREIGN KEY (Trainer_gym_id) REFERENCES Gyms(Gyms_id)
 );
 
-create table Members(
-Members_id varchar(5) NOT NULL,
-Member_name varchar (20) not null,
-Member_date_of_birth date not null,
-Member_email varchar(20),
-Member_mobile_number int Not null UNIQUE check (Member_mobile_number>7000000),
-Member_gender varchar(1) Not null check (Member_gender in ('M','F')),
-Member_Address varchar (10),
-Member_gym_id varchar(5) not null,
-constraint Members_id_pk primary key (Members_id),
-constraint Member_gym_id_fk foreign key (Member_gym_id) references Gyms(Gyms_id),
+CREATE TABLE Members (
+    Members_id VARCHAR(5) NOT NULL,
+    Member_name VARCHAR(20) NOT NULL,
+    Member_date_of_birth DATE NOT NULL,
+    Member_email VARCHAR(20),
+    Member_mobile_number BIGINT NOT NULL UNIQUE CHECK (Member_mobile_number > 7000000),
+    Member_gender VARCHAR(1) NOT NULL CHECK (Member_gender IN ('M', 'F')),
+    Member_Address VARCHAR(10),
+    Member_gym_id VARCHAR(5) NOT NULL,
+    CONSTRAINT Members_id_pk PRIMARY KEY (Members_id),
+    CONSTRAINT Member_gym_id_fk FOREIGN KEY (Member_gym_id) REFERENCES Gyms(Gyms_id)
 );
 
-create table Equipment(
-Equipment_id varchar(5) NOT NULL,
-Equipment_name varchar(20),
-Equipment_manufacturer varchar(20),
-Equipment_age int not null,
-Equipment_gym_id varchar(5) not null,
-constraint Equipment_id_pk primary key (Equipment_id),
-constraint Equipment_gym_id_fk foreign key (Equipment_gym_id) references Gyms(Gyms_id),
+CREATE TABLE Equipment (
+    Equipment_id VARCHAR(5) NOT NULL,
+    Equipment_name VARCHAR(20),
+    Equipment_manufacturer VARCHAR(20),
+    Equipment_age INT NOT NULL,
+    Equipment_gym_id VARCHAR(5) NOT NULL,
+    CONSTRAINT Equipment_id_pk PRIMARY KEY (Equipment_id),
+    CONSTRAINT Equipment_gym_id_fk FOREIGN KEY (Equipment_gym_id) REFERENCES Gyms(Gyms_id)
+);
+
+CREATE TABLE Memberships (
+    Membership_id VARCHAR(5) NOT NULL,
+    Membership_memberid VARCHAR(5) NOT NULL UNIQUE,
+    Membership_start_date DATE NOT NULL,
+    Membership_end_date DATE NOT NULL,
+    Membership_type VARCHAR(10) NOT NULL,
+    CONSTRAINT Membership_id_pk PRIMARY KEY (Membership_id),
+    CONSTRAINT Membership_memberid_fk FOREIGN KEY (Membership_memberid) REFERENCES Members(Members_id)
 );
 
 
-create table Memberships(
-Membership_id varchar(5) NOT NULL,
-Membership_memberid varchar(5) unique not null,
-Membership_start_date date not null,
-Membership_end_date date not null,
-Membership_type varchar (10) not null,
-constraint Membership_id_pk primary key (Membership_id),
-constraint Membership_memberid_fk foreign key (Membership_memberid) references Members(Members_id),
-);
-	
+
