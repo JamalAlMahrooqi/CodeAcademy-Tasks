@@ -1,0 +1,10 @@
+Branch,Product,Category,Amount,Value
+Branch 1,Carrots,Vegetables,3,1
+Branch 1,Carrots,Vegetables,2,4
+Branch 1,Carrots,Vegetables,2,5
+Branch 1,Banana,Fruit,3,5
+Branch 1,Banana,Fruit,3,6
+Branch 2,Carrots,Vegetables,4,6
+Branch 2,Carrots,Vegetables,5,8
+Branch 2,Banana,Fruit,6,9
+Branch 2,Banana,Fruit,7,9
